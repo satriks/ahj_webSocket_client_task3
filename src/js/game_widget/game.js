@@ -29,15 +29,12 @@ export default class Game {
       const data = JSON.parse(e.data)
 
       this.add(data.event, data.type, data.date)
-      // this.element.append(gameEvent);
     })
     this.sse.addEventListener('logs', (e) => {
       const data = JSON.parse(e.data)
-      console.log(data, 'data. logs')
       data.forEach(element => {
         this.add(element.event, element.type, element.date)
       })
-      // this.element.append(gameEvent);
     })
   }
 }
